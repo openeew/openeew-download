@@ -4,7 +4,7 @@ kind: Secret
 metadata:
   name: download-secrets
 data:
-  SERVER_PORT=8443
+  SERVER_PORT: ODQ0Mw==
 ---
 apiVersion: apps/v1
 kind: Deployment

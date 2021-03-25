@@ -45,6 +45,13 @@ docker run -it -p 8443:8443 --env-file env.list --name openeew-download openeew/
 
 Use the `download-v1.yaml` file to deploy this container to IKS
 
+To create the secret, you may need to add the base64 encoded SERVER_PORT to the `Secret` section of the yaml file
+
+```sh
+$ echo -n 8443 | base64
+ODQ0Mw==
+```
+
 ```
 ibmcloud login --sso
 ibmcloud cr login
