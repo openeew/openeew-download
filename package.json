@@ -1,0 +1,21 @@
+{
+  "name": "openeew-fw-download",
+  "version": "1.4.0",
+  "description": "OpenEEW Firmware Download server",
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "scripts": {
+    "start": "node static-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openeew/openeew-download.git"
+  },
+  "author": "John Walicki",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/openeew/openeew-download/issues"
+  },
+  "homepage": "https://github.com/openeew/openeew-download#readme"
+}
