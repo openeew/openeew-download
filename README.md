@@ -35,9 +35,26 @@ The `Dockerfile` in this repo creates container which runs the express server to
 docker build -t openeew/openeew-download:v1 .
 ```
 
+```
+echo SERVER_PORT=8443>./env.list
+docker rm openeew-download
+docker run -it -p 8443:8443 --env-file env.list --name openeew-download openeew/openeew-download:v1
+```
+
 ## Kubernetes yaml file
 
 Use the `download-v1.yaml` file to deploy this container to IKS
+
+```
+ibmcloud login --sso
+ibmcloud cr login
+ibmcloud cr region-set us-south
+ibmcloud target -g OpenEEW-Infra
+ibmcloud ks cluster config --cluster <cluster-config>
+ibmcloud cr namespace-add openeew-download
+docker push us.icr.io/openeew-download/openeew-download:v1
+kubectl apply -f download-v1.yaml --namespace default
+```
 
 ### Contributors
 
