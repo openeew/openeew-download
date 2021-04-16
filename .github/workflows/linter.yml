@@ -19,5 +19,5 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@v1
       - run: npm install -g dockerfilelint prettier
-      - run: dockerfilelint ./web/Dockerfile
+      - run: dockerfilelint Dockerfile
       - run: prettier --check .
