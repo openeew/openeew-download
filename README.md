@@ -2,9 +2,10 @@
 
 This reposistory builds the source image for [download.openeew.com](https://download.openeew.com) which is used as a secure download server to deliver firmware to OpenEEW sensors.
 
-The [OpenEEW Firmware](https://github.com/openeew/openeew-firmware) that runs on the ESP32 based [OpenEEW Sensor](https://github.com/openeew/openeew-sensor) will activate itself via the OpenEEW Devicement Management orchestration process. The sensor firmware knows what version it is running and sends this information to the OpenEEW Device Management service endpoint.  The endpoint responds with the latest version number of the firmware and the https URL where the latest version of the firmware can be downloaded.  The ESP32 then determines if the firmware it is running is downlevel and, if necessary, will initiate an ESP32 over the air (OTA) upgrade using the [esp_https_ota()](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/esp_https_ota.html) API.  That API downloads the new firmware binary from a https URL download server.
+The [OpenEEW Firmware](https://github.com/openeew/openeew-firmware) that runs on the ESP32 based [OpenEEW Sensor](https://github.com/openeew/openeew-sensor) will activate itself via the OpenEEW Devicement Management orchestration process. The sensor firmware knows what version it is running and sends this information to the OpenEEW Device Management service endpoint. The endpoint responds with the latest version number of the firmware and the https URL where the latest version of the firmware can be downloaded. The ESP32 then determines if the firmware it is running is downlevel and, if necessary, will initiate an ESP32 over the air (OTA) upgrade using the [esp_https_ota()](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/esp_https_ota.html) API. That API downloads the new firmware binary from a https URL download server.
 
 This repository contains the source image of that download server.
+
 - the smallest, simplest Express https server
 - the firmware binaries (typically sourced from [OpenEEW Firmware Releases](https://github.com/openeew/openeew-firmware/releases))
 - the Dockerfile to build a container from this express server and firmware binaries
@@ -16,10 +17,10 @@ This `static-server.js` module creates an HTTP web server and serves static cont
 from a specified directory on a specified port.
 
 This express server is constructed from examples located at:
+
 - https://expressjs.com/en/starter/static-files.html
 
-
-To execute this express server, git clone this repo.  Review the package.json
+To execute this express server, git clone this repo. Review the package.json
 To start the local server.
 
 ```sh
