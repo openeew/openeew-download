@@ -77,6 +77,10 @@ Enjoy! Give us [feedback](https://github.com/openeew/openeew-download/issues) if
 
 The community welcomes your involvement and contributions to this project. Please read the OpenEEW [contributing](https://github.com/openeew/openeew/blob/master/CONTRIBUTING.md) document for details on our code of conduct, and the process for submitting pull requests to the community.
 
+This repository executes a GitHub Action that runs the [prettier code formatter](https://prettier.io/docs/en/index.html) and [dockerfilelint](https://github.com/replicatedhq/dockerfilelint#readme) on every Push and Pull Request.
+
+To install prettier and dockerfilelint in your local enviroment follow these instructions: [install prettier](https://prettier.io/docs/en/install.html), [install dockerfilelint](https://www.npmjs.com/package/dockerfilelint)
+
 ## License
 
 The OpenEEW sensor is licensed under the Apache Software License, Version 2. Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
