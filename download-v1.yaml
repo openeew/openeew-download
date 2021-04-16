@@ -22,13 +22,13 @@ spec:
         app: openeew-download
     spec:
       containers:
-      - name: download
-        image: us.icr.io/openeew-download/openeew-download:v1
-        ports:
-        - containerPort: 8443
-        envFrom:
-        - secretRef:
-            name: download-secrets
+        - name: download
+          image: us.icr.io/openeew-download/openeew-download:v1
+          ports:
+            - containerPort: 8443
+          envFrom:
+            - secretRef:
+                name: download-secrets
 ---
 apiVersion: v1
 kind: Service
@@ -39,30 +39,29 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8443
-    targetPort: 8443
-    protocol: TCP
-    name: http
+    - port: 8443
+      targetPort: 8443
+      protocol: TCP
+      name: http
   selector:
     app: openeew-download
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
- name: openeew-download-lb
- annotations:
-   service.kubernetes.io/ibm-load-balancer-cloud-provider-enable-features: "nlb"
+  name: openeew-download-lb
+  annotations:
+    service.kubernetes.io/ibm-load-balancer-cloud-provider-enable-features: "nlb"
 spec:
- type: LoadBalancer
- selector:
+  type: LoadBalancer
+  selector:
     app: openeew-download
- ports:
-  - name: http
-    protocol: TCP
-    port: 80
-    targetPort: 8443
-  - name: https
-    protocol: TCP
-    port: 443
- externalTrafficPolicy: Cluster
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8443
+    - name: https
+      protocol: TCP
+      port: 443
+  externalTrafficPolicy: Cluster
