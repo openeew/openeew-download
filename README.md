@@ -68,7 +68,7 @@ kubectl apply -f download-v1.yaml --namespace default
 ### download.openeew.com server certificate
 
 Use your browser to download the Let's Encrypt server certificate for [https://download.openeew.com](https://download.openeew.com)
-Make certain you download the entire PEM chain.   Test that you have a valid TLS SSL PEM file using this OpenSSL command.
+Make certain you download the entire PEM chain. Test that you have a valid TLS SSL PEM file using this OpenSSL command.
 
 ```sh
 openssl x509 -in openeew-com-chain.pem -noout -text
