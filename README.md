@@ -30,10 +30,11 @@ node static-server.js
 
 ## Build a container
 
-The `Dockerfile` in this repo creates container which runs the express server to serve the firmware binaries.
+The `Dockerfile` in this repo creates a container which runs the express server to serve the firmware binaries.
 
 ```sh
 docker build -t openeew/openeew-download:v1 .
+docker tag openeew/openeew-download:v1 us.icr.io/openeew-download/openeew-download:v1
 ```
 
 ```
@@ -62,6 +63,15 @@ ibmcloud ks cluster config --cluster <cluster-config>
 ibmcloud cr namespace-add openeew-download
 docker push us.icr.io/openeew-download/openeew-download:v1
 kubectl apply -f download-v1.yaml --namespace default
+```
+
+### download.openeew.com server certificate
+
+Use your browser to download the Let's Encrypt server certificate for [https://download.openeew.com](https://download.openeew.com)
+Make certain you download the entire PEM chain. Test that you have a valid TLS SSL PEM file using this OpenSSL command.
+
+```sh
+openssl x509 -in openeew-com-chain.pem -noout -text
 ```
 
 ### Contributors
