@@ -21,11 +21,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: call-for-code/build-push-deploy@v1
+      - uses: call-for-code/build-push-deploy@v2
         with:
           cloud-api-key: ${{ secrets.IBM_CLOUD_API_KEY }}
           cloud-resource-group: OpenEEW-Infra
           cloud-region: us-south
+          container-name: download
           deployment-name: openeew-download
           github-sha: ${{ github.sha }}
           icr-namespace: ${{ secrets.ICR_NAMESPACE }}
